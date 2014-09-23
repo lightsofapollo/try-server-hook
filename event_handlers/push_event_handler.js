@@ -132,7 +132,8 @@ PushEventHandler.prototype.handle = function (msg, callback) {
         child.send(push.branch);
       } catch (err) {
         child.kill();
-        return callback(err, true);
+        log.error(err, 'IGNORING ERROR! caught this exception from the child');
+        //return callback(err, true);
       }
     });
   });

@@ -138,7 +138,8 @@ PREventHandler.prototype.handle = function (msg, callback) {
       child.send(pr.base_ref);
     } catch (err) {
       child.kill();
-      callback(err, true);
+      log.error(err, 'IGNORING ERROR! Caught an exception from the child which we want to ignore now');
+      //callback(err, true);
     }
   });
 };
