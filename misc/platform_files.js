@@ -232,6 +232,7 @@ function findB2GVer (b2gGeckoRepos, b2gVer) {
 // We can safely cache this data
 var b2gVersionCache = {
   master: 'mozilla-central',
+  'v2.1': 'releases/mozilla-aurora',
 };
 
 // Map a B2G Version, e.g. v1.3t, to a Gecko repo path, e.g. releases/mozilla-b2g28_v1_3t
