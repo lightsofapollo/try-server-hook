@@ -48,7 +48,7 @@ function geckoVersion (options, callback) {
     'version.txt'
   ];
   var urlObj = {
-    protocol: options.protocol || 'https',
+    protocol: options.protocol || 'http',
     hostname: options.host || 'hg.mozilla.org',
     port: options.port,
     pathname: pathComponents.join('/')
