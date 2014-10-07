@@ -1,8 +1,7 @@
 'use strict';
-
 var url = require('url');
 var async = require('async');
-var request = require('request');
+var request = require('request').defaults({secureProtocol: 'SSLv3_method'});
 var util = require('util');
 var jsdom = require('jsdom');
 var logging = require('./logging');
@@ -48,7 +47,7 @@ function geckoVersion (options, callback) {
     'version.txt'
   ];
   var urlObj = {
-    protocol: options.protocol || 'http',
+    protocol: options.protocol || 'https',
     hostname: options.host || 'hg.mozilla.org',
     port: options.port,
     pathname: pathComponents.join('/')
