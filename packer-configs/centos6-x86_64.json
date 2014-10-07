@@ -25,6 +25,7 @@
   {
     "type": "digitalocean",
     "image_id": 3448641,
+    "region": "sfo1",
     "client_id": "{{user `do_client_id` }}",
     "api_key": "{{user `do_api_key` }}"
   }
