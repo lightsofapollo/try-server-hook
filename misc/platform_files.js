@@ -57,7 +57,7 @@ function geckoVersion (options, callback) {
   log.debug('Getting version from %s', versionUrl);
   request.get(versionUrl, function (err, response, body) {
     if (err) {
-      log.error(err, 'Getting version from %s', versionUrl);
+      log.error(err, 'Getting version from %s for %s', versionUrl, JSON.stringify(options));
       return callback(err);
     }
     var match = /^((\d+)\.{0,1})+(\d+)([ab]?\d+)?$/gm.exec(body);
@@ -220,9 +220,9 @@ function findB2GVer (b2gGeckoRepos, b2gVer) {
   // all versions of B2G that don't have a specific gecko
   // repo already are aurora.  I will live to regret this
   var geckoBranch;
-  if (!mapping[b2gVer]) {
+  if (!mapping[b2gVer] || b2gVer == 'v2.1') {
     log.debug('Using aurora because this non-master version of b2g doesn\'t have a gecko yet');
-    geckoBranch = 'releases/mozilla-aurora';
+    geckoBranch = '/releases/mozilla-aurora';
   } else {
     geckoBranch = mapping[b2gVer];
   }
