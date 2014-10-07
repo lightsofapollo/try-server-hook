@@ -107,23 +107,22 @@ PushEventHandler.prototype.handle = function (msg, callback) {
       var child = fork(path.join(__dirname, '../misc/find_platform_files.js'));
     
       child.once('error', function(err) {
-        log.error(err, 'IGNORING ERROR! Error while talking to child process that figures out building platform json files');
-        //callback(err);
+        log.error(err, 'Error while talking to child process that figures out building platform json files');
+        callback(err);
       });
 
       child.once('message', function(msg) {
         child.kill();
         if (msg.err) {
-          log.error(msg.err, 'IGNORING ERROR! Error in child process');
-          //return callback(msg.err, false);
+          return callback(msg.err, false);
         }
         if (!msg.contents) {
-          log.info('Didn\'t find new gecko files, meh');
-          //return callback(new Error('Could not determine Gecko files'), false);
+          log.error('Failed to get the Gecko files');
+          return callback(new Error('Could not determine Gecko files'), false);
         }
         log.debug('Fetched platform file values for %s', push.branch);
         var user = push.who;
-        var contents = msg.contents || {};
+        var contents = msg.contents;
         contents['gaia.json'] = jsonForPush(push);
         return callback(null, null, {user: user, commit_message: commitMsg, contents: contents, push: push});
       })
@@ -132,8 +131,7 @@ PushEventHandler.prototype.handle = function (msg, callback) {
         child.send(push.branch);
       } catch (err) {
         child.kill();
-        log.error(err, 'IGNORING ERROR! caught this exception from the child');
-        //return callback(err, true);
+        return callback(err, true);
       }
     });
   });
