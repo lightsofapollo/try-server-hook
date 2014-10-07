@@ -1,7 +1,7 @@
 'use strict';
 var url = require('url');
 var async = require('async');
-var request = require('request').defaults({secureProtocol: 'SSLv3_method'});
+var request = require('request');
 var util = require('util');
 var jsdom = require('jsdom');
 var logging = require('./logging');
@@ -221,7 +221,7 @@ function findB2GVer (b2gGeckoRepos, b2gVer) {
   var geckoBranch;
   if (!mapping[b2gVer] || b2gVer == 'v2.1') {
     log.debug('Using aurora because this non-master version of b2g doesn\'t have a gecko yet');
-    geckoBranch = '/releases/mozilla-aurora';
+    geckoBranch = 'releases/mozilla-aurora';
   } else {
     geckoBranch = mapping[b2gVer];
   }
