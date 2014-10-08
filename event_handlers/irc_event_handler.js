@@ -3,7 +3,7 @@ var when = require('when');
 var BaseEventHandler = require('./base_event');
 var util = require('util');
 var shorten = require('../misc/bitly_shorten').shorten;
-var tbpl = require('../misc/tbpl');
+var tbpl = require('../misc/treeherder');
 var logging = require('../misc/logging');
 
 var log = logging.setup(__filename);

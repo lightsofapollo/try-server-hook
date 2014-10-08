@@ -4,7 +4,7 @@ var util = require('util');
 var config = require('../config');
 var github = require('../misc/githubapi');
 
-var tbpl = require('../misc/tbpl');
+var tbpl = require('../misc/treeherder');
 var logging = require('../misc/logging');
 
 var log = logging.setup(__filename);
