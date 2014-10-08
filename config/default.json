@@ -18,6 +18,8 @@
   "IRC_SERVER": "irc://irc.mozilla.org",
   "IRC_CHANNELS": ["#gaiabot"],
   "IRC_USER": "gertrude-dev",
+  "TREEHERDER_HOST": "treeherder.mozilla.org",
+  "TREEHERDER_REPO": "gaia-try",
   "TBPL_HOST": "tbpl.mozilla.org",
   "TBPL_TREE": "Staging-Gaia-Try",
   "PORT": 7040
