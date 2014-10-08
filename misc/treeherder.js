@@ -10,7 +10,7 @@ function makeUrl(opts) {
   return util.format(
       'https://%s/ui/#/jobs?repo=%s&revision=%s',
       config.get('TREEHERDER_HOST'),
-      opts.tree || config.get('TREEHERDER_TREE'),
+      opts.tree || config.get('TREEHERDER_REPO'),
       opts.revision || opts.rev
   );
 }
