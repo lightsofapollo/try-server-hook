@@ -219,7 +219,7 @@ function findB2GVer (b2gGeckoRepos, b2gVer) {
   // all versions of B2G that don't have a specific gecko
   // repo already are aurora.  I will live to regret this
   var geckoBranch;
-  if (!mapping[b2gVer] || b2gVer == 'v2.1') {
+  if (!mapping[b2gVer]/* || b2gVer == 'v2.1'*/) {
     log.debug('Using aurora because this non-master version of b2g doesn\'t have a gecko yet');
     geckoBranch = 'releases/mozilla-aurora';
   } else {
@@ -232,7 +232,7 @@ function findB2GVer (b2gGeckoRepos, b2gVer) {
 // We can safely cache this data
 var b2gVersionCache = {
   master: 'mozilla-central',
-  'v2.1': 'releases/mozilla-aurora',
+  //'v2.1': 'releases/mozilla-aurora',
 };
 
 // Map a B2G Version, e.g. v1.3t, to a Gecko repo path, e.g. releases/mozilla-b2g28_v1_3t
