@@ -29,7 +29,7 @@ connection.open()
   .then(msgBroker.assertSchema)
   .then(function(conn) {
     return conn.createConfirmChannel().then(function(ch) {
-      ch.prefetch(1);
+      ch.prefetch(5);
       ch.on('error', function(err) {
         log.error(err, 'AMQP channel error, exiting');
         process.exit(1);
