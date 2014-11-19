@@ -14,12 +14,14 @@ var bbToRealPlatform = {
   'linux64': 'linux-x86_64',
   'linux64_gecko-debug': 'linux-x86_64',
   'macosx64_gecko': 'mac64',
+  'win32_gecko': 'win32',
 };
 
 var platformToSuffix = {
   'linux-i686': '.tar.bz2',
   'linux-x86_64': '.tar.bz2',
-  'mac64': '.dmg'
+  'mac64': '.dmg',
+  'win32': '.zip',
 };
 
 /*
