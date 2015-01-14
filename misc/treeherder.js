@@ -9,7 +9,7 @@ function makeUrl(opts) {
   var shortrev = opts.revision || opts.rev;
   shortrev = shortrev.slice(0, 12);
   return util.format(
-      'https://%s/ui/#/jobs?repo=%s&revision=%s',
+      'https://%s/#/jobs?repo=%s&revision=%s',
       config.get('TREEHERDER_HOST'),
       opts.tree || config.get('TREEHERDER_REPO'),
       shortrev
