@@ -4,7 +4,7 @@ var util = require('util');
 var config = require('../config');
 var github = require('../misc/githubapi');
 
-var tbpl = require('../misc/treeherder');
+var treeherder = require('../misc/treeherder');
 var logging = require('../misc/logging');
 
 var log = logging.setup(__filename);
@@ -45,7 +45,7 @@ GithubPostHandler.prototype.handle = function (msg, callback) {
     }
     var comment = util.format('[%s %s](%s) started tests. [Results](%s)',
                               avatar(avatarUrl, msg.pr.who), nameString,
-                              profileUrl, tbpl.url({rev: msg.hg_id}));
+                              profileUrl, treeherder.url({rev: msg.hg_id}));
     var ghmsg = {
       user: user,
       repo: repo,
